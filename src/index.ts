@@ -13,11 +13,10 @@ const client = new Client({
 });
 const commands: Collection<string, Command> = new Collection();
 (async () => {
-    for await (const i of readdirSync("../commands")) {
+    for await (const i of readdirSync("./commands")) {
         const file: Command = await import(`../commands/${i}`);
         commands.set(file.data.name, file);
     }
-
 
     client.on("interactionCreate", async interaction => {
         interaction.isCommand() ? commands.get(interaction.commandName)?.execute(interaction) : null;

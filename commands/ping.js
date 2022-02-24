@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {
+module.exports ={
     data: new SlashCommandBuilder()
         .setName("ping")
         .setDescription("Receive \"Pong!\" back"),
